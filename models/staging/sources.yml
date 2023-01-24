@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    database: dbt-tutorial
+    schema: jaffle_shop
+    description: Schema for jaffle shop's orders and customers list
+    tables:
+      - name: orders
+        description: One record for each record with the ordered customer's id
+        columns:
+        - name: status
+          description: Specifies the status of the order described by the record
+          tests:
+            - accepted_values:
+                values: ['placed','shipped','completed','returned']
+      - name: customers
+        description: One record for each customer with his unique id
+      
+  - name: stripe
+    database: dbt-tutorial
+    schema: stripe
+    description: Schema representing the payments portal stripe
+    tables:
+      - name: payment
+        description: One record for every payment attempt made
