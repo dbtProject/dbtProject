@@ -9,13 +9,24 @@ sources:
       - name: orders
         description: One record for each record with the ordered customer's id
         columns:
+        - name: id
+          description: Primary key
+          tests:
+            - unique
+            - not_null 
         - name: status
           description: Specifies the status of the order described by the record
           tests:
             - accepted_values:
-                values: ['placed','shipped','completed','returned']
+                values: ['placed','shipped','completed','returned','return_pending']
       - name: customers
         description: One record for each customer with his unique id
+        colums:
+        - name: id
+          desciption: Primary key
+          tests:
+            - unique
+            - not_null
       
   - name: stripe
     database: dbt-tutorial
@@ -24,3 +35,9 @@ sources:
     tables:
       - name: payment
         description: One record for every payment attempt made
+        columns:
+        - name: id
+          description: Primary key
+          tests:
+          - unique
+          - not_null

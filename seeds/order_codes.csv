@@ -1,0 +1,6 @@
+order_status,status_code
+placed,0
+shipped,1
+completed,2
+returned,3
+return_pending,4
