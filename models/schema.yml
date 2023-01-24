@@ -24,4 +24,10 @@ models:
           - relationships:
               to: ref('stg_customers')
               field: user_id
+
+  - name: total_amount_spent_per_order
+    columns:
+      - name: total_amount
+        tests:
+          - assert_amount_positive
   
