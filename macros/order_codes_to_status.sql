@@ -4,7 +4,7 @@
 'Placed'
 {% elif codes == 1 %}
 'Shipped'
-{% elif codes == 2 %}}
+{% elif codes == 2 %}
 'Completed'
 {% elif codes == 3 %}
 'Returned'
