@@ -11,7 +11,7 @@
 {% elif codes == 4 %}
 'Return_Pending'
 {% else %}
-NULL
+'NULL'
 {% endif %}
 
 {% endmacro %}
