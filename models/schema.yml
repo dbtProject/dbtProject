@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: Staged view of the customers table with renamed columns
+    columns:
+      - name: user_id
+        description: Unique ID assigned to each user
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_orders
+    description: Staged view of the orders table with renamed columns
+    columns:
+      - name: order_id
+        description: Unique ID assigned to each order
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        description: Relates to the user who made the order
+        tests:
+          - relationships:
+              to: ref('stg_customers')
+              field: user_id
+
+  - name: stg_payment
+    columns:
+      - name: payment_id
+        description: Unique id assigned to each payment
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: Relates to orders
+        test:
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+          
+  
