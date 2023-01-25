@@ -1,17 +1,17 @@
 {% macro order_codes_to_status(codes) %}
 
 {% if codes == 0 %}
-return 'Placed'
+'Placed'
 {% elif codes == 1 %}
-return 'Shipped'
+'Shipped'
 {% elif codes == 2 %}}
-return 'Completed'
+'Completed'
 {% elif codes == 3 %}
-return 'Returned'
+'Returned'
 {% elif codes == 4 %}
-return 'Return_Pending'
+'Return_Pending'
 {% else %}
-return NULL
+NULL
 {% endif %}
 
 {% endmacro %}

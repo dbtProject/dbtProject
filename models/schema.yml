@@ -25,9 +25,18 @@ models:
               to: ref('stg_customers')
               field: user_id
 
-  - name: total_amount_spent_per_order
+  - name: stg_payment
     columns:
-      - name: total_amount
+      - name: payment_id
+        description: Unique id assigned to each payment
         tests:
-          - assert_amount_positive
+          - unique
+          - not_null
+      - name: order_id
+        description: Relates to orders
+        test:
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+          
   
