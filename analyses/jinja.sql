@@ -3,7 +3,7 @@
 {% for i in list %}
 
 select *
-from {{ ref("stg_orders") }}
+from `dbt-tutorial`.`jaffle_shop`.`orders`
 where order_status = '{{i}}'
 
 {% if not loop.last %}

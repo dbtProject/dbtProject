@@ -1,7 +1,7 @@
 {% macro order_codes_to_status(codes) %}
 
 {% if codes == 0 %}
-'Placed'
+{{ log('Placed', info=True) }}
 {% elif codes == 1 %}
 'Shipped'
 {% elif codes == 2 %}
@@ -15,3 +15,4 @@
 {% endif %}
 
 {% endmacro %}
+
